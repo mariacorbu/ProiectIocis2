@@ -2,59 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChangeColorPill : MonoBehaviour
+public class ChangeColorAndSoundPill : MonoBehaviour
 {
-
-    private Transform esofag, stomac, duoden, intestin_subtire, ileon, intestin_gros, anus;
-
-    private int pos = 5;
-
-
+    public AudioSource audioEsofag, audioStomac, audioDuoden, audioIntestinSubtire, audioIleon, audioIntestinGros, audioRect;
 
     void FixedUpdate()
     {
-        esofag = GameObject.FindWithTag("Esofag").transform;
-        stomac = GameObject.FindWithTag("Stomac").transform;
-        duoden = GameObject.FindWithTag("Duoden").transform;
-        intestin_subtire = GameObject.FindWithTag("IntestinSubtire").transform;
-        ileon = GameObject.FindWithTag("Ileon").transform;
-        intestin_gros = GameObject.FindWithTag("IntestinGros").transform;
-        anus = GameObject.FindWithTag("Anus").transform;
-
-        if (Vector2.Distance(esofag.position, transform.position) < pos)
+        float z = transform.position.z;
+       // Debug.Log(z);
+        if (4 < z && z < 57)
         {
-            this.GetComponent<MeshRenderer>().material.color = Color.green;
-            Debug.Log(Vector2.Distance(esofag.position, transform.position).ToString() + " -> " + esofag.name);
+            this.GetComponent<MeshRenderer>().material.color = new Color32(0, 153, 51, 1);
+            if(4 < z && z < 8) audioEsofag.Play();
         }
-        else if(Vector2.Distance(stomac.position, transform.position) < pos)
+        else if (57 < z && z < 114)
         {
-            this.GetComponent<MeshRenderer>().material.color = Color.red;
-            Debug.Log(Vector2.Distance(stomac.position, transform.position).ToString() + " -> " + stomac.name);
+            this.GetComponent<MeshRenderer>().material.color = new Color32(102, 255, 102, 1);
+            if (57 < z && z < 61) audioStomac.Play();
         }
-        else if (Vector2.Distance(duoden.position, transform.position) < pos)
+        else if (114 < z && z < 128)
         {
-            this.GetComponent<MeshRenderer>().material.color = Color.blue;
-            Debug.Log(Vector2.Distance(duoden.position, transform.position).ToString() + " -> " + duoden.name);
+            this.GetComponent<MeshRenderer>().material.color = new Color32(204, 255, 102, 1);
+            if (114 < z && z < 117) audioDuoden.Play();
         }
-        else if (Vector2.Distance(intestin_subtire.position, transform.position) < pos)
+        else if (128 < z && z < 159)
         {
-            this.GetComponent<MeshRenderer>().material.color = Color.magenta;
-            Debug.Log(Vector2.Distance(intestin_subtire.position, transform.position).ToString() + " -> " + intestin_subtire.name);
+            this.GetComponent<MeshRenderer>().material.color = new Color32(255, 204, 0, 1);
+            if (128 < z && z < 131) audioIntestinSubtire.Play();
         }
-        else if (Vector2.Distance(ileon.position, transform.position) < pos)
+        else if (159 < z && z < 162)
         {
-            this.GetComponent<MeshRenderer>().material.color = Color.black;
-            Debug.Log(Vector2.Distance(ileon.position, transform.position).ToString() + " -> " + ileon.name);
+            this.GetComponent<MeshRenderer>().material.color = new Color32(204, 153, 0, 1);
+            if (158 < z && z < 160) audioIleon.Play();
         }
-        else if (Vector2.Distance(intestin_gros.position, transform.position) < pos)
+        else if (162 < z && z < 189)
         {
-            this.GetComponent<MeshRenderer>().material.color = Color.yellow;
-            Debug.Log(Vector2.Distance(intestin_gros.position, transform.position).ToString() + " -> " + intestin_gros.name);
+            this.GetComponent<MeshRenderer>().material.color = new Color32(153, 102, 51, 1);
+            if (162 < z && z < 165) audioIntestinGros.Play();
         }
-        else if (Vector2.Distance(anus.position, transform.position) < pos)
+        else if (189 < z)
         {
-            this.GetComponent<MeshRenderer>().material.color = Color.grey;
-            Debug.Log(Vector2.Distance(anus.position, transform.position).ToString() + " -> " + anus.name); 
+            this.GetComponent<MeshRenderer>().material.color = new Color32(102, 51, 0, 1);
+            if (189 < z && z < 192) audioRect.Play();
         }
         else
         {
