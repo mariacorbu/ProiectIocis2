@@ -397,7 +397,9 @@
 "Assets/Scripts/ChangeColorAndSoundPill.cs"
 "Assets/Scripts/ChangeColorPill.cs"
 "Assets/Scripts/DancingPill.cs"
+"Assets/Scripts/GameManager.cs"
 "Assets/Scripts/Miscare_manuala.cs"
+"Assets/Scripts/Question.cs"
 "Assets/Scripts/StartQuiz.cs"
 -langversion:9.0
 
